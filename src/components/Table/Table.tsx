@@ -8,7 +8,7 @@ import {
 
 import { TableRow } from "../TableRow";
 
-import { Note } from "../../types/notes";
+import { NotesState } from "../../types/notes";
 
 const headers = [
  "Name",
@@ -18,11 +18,8 @@ const headers = [
  "Category",
  "Actions",
 ];
-type Props = {
- notes: Note[];
-};
 
-export const Table: FC<Props> = ({ notes }) => {
+export const Table: FC<NotesState> = ({ notes }) => {
  return (
   <>
    {notes.length > 0 ? (

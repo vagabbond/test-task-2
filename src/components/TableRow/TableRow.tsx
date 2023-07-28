@@ -10,10 +10,12 @@ import {
 import { Note } from "../../types/notes";
 
 import { BiArchiveIn, BiArchiveOut } from "react-icons/bi";
-import { AiFillDelete } from "react-icons/ai";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+
 import { useAppDispatch } from "../../redux/operations";
 import {
  archiveNote,
+ editNote,
  removeNote,
  unArchiveNote,
 } from "../../redux/notes/notesSlice";
@@ -48,14 +50,24 @@ export const TableRow: FC<Note> = ({
        <BiArchiveOut size="30" />
       </TableCellActionsButtonStyled>
      ) : (
-      <TableCellActionsButtonStyled
-       type="button"
-       onClick={() => {
-        dispatch(archiveNote(id));
-       }}
-      >
-       <BiArchiveIn size="30" />
-      </TableCellActionsButtonStyled>
+      <>
+       <TableCellActionsButtonStyled
+        type="button"
+        onClick={() => {
+         dispatch(archiveNote(id));
+        }}
+       >
+        <BiArchiveIn size="30" />
+       </TableCellActionsButtonStyled>
+       <TableCellActionsButtonStyled
+        type="button"
+        onClick={() => {
+         dispatch(editNote(id));
+        }}
+       >
+        <AiFillEdit size="30" />
+       </TableCellActionsButtonStyled>
+      </>
      )}
      <TableCellActionsButtonStyled
       type="button"
