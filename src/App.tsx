@@ -14,6 +14,7 @@ export const App: FC = () => {
  const archivatedNotes = notes.filter((note) => note.archived === true);
  return (
   <Wrapper>
+   <Title>Notes app</Title>
    <AddNoteForm />
    <Title>Active notes</Title>
    <Table notes={unarchivatedNotes} />
